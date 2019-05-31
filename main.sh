@@ -1,43 +1,91 @@
 #!/bin/bash
 clear
 PROJECT_FOLDER=$1
+root_path=$(pwd)
+log_path=/dev/null
+-rm log.txt &> ${log_path}
+
+for arg in "$@"
+do
+  if [ "$arg" == "--verbose" ] || [ "$arg" == "-v" ]
+  then
+    install -m 777 /dev/null log.txt
+    log_path="${root_path}/log.txt"
+    echo 'React Bluepint Logs' > ${log_path}
+  fi
+done
+
 if [ -z "$PROJECT_FOLDER" ]; then
   echo "Use path folder"
   exit 125
 fi
 
-source ~/.zshrc >& /dev/null
+source ~/.zshrc &>> ${log_path}
 source ./helper.sh;
-source ./installers/nvm.sh;
 
 title "SETTING UP REACT BLUEPRINT" $LOGO;
 
 printf "\nChecking dependencies... "
 
+# ============ NVM =============
 if command_exists nvm; then
   title "NVM already installed" $CHECK
-  activate_nvm
 else
   installing "NVM"
-  install_nvm && activate_nvm
+  $(wget --wait=20 -qO -  https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash &>> ${log_path}) &
+  wait
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 installed "NVM"
-LTS_NODE_VERSION="`wget -qO- https://resolve-node.now.sh/lts`"
-installing "Node version: ${LTS_NODE_VERSION}\n" &> /dev/null
+
+# ============ NODE VERSION =============
+LTS_NODE_VERSION="`wget -qO- --wait=20 https://resolve-node.now.sh/lts`"
+installing "Node version: ${LTS_NODE_VERSION}" 
+`nvm install $LTS_NODE_VERSION &>> ${log_path}` &
+wait
+nvm use $LTS_NODE_VERSION &>> ${log_path}
 installed "Node version: ${LTS_NODE_VERSION}"
-nvm install $LTS_NODE_VERSION &> /dev/null
 
+# ============ CREATE REACT APP =============
 installing "React app via create react app"
-mkdir -p $PROJECT_FOLDER && cd $PROJECT_FOLDER &> /dev/null
-npx -q create-react-app $PROJECT_FOLDER &> /dev/null
-
-echo $LTS_NODE_VERSION > .nvmrc
-nvm use &> /dev/null
-npm i &> /dev/null
-
+npx -q create-react-app $PROJECT_FOLDER &>> ${log_path} &
+wait
 installed "\nReact app"
+echo $PROJECT_FOLDER
+cd $PROJECT_FOLDER
+echo $LTS_NODE_VERSION > .nvmrc
+nvm use &>> ${log_path}
 
-installing "node check engine"
-npx -q json -I -f package.json -e "this.engines={\"node\":\">=$LTS_NODE_VERSION\"}" &> /dev/null
-npx -q check-engine &> /dev/null
+# ============ CHECK ENGINE =============
+installing "Node check-engine"
+npx -q json -I -f package.json -e "this.engines={\"node\":\">=$LTS_NODE_VERSION\"}" &>> ${log_path} &
+npx -q json -I -f package.json -e "this.scripts.preinstall=\"npx check-engine\"" &>> ${log_path} &
+npx -q check-engine &>> ${log_path} &
+wait
 installed "node check engine"
+
+# ============ NPM LIBRARIES =============
+installing "styled-components"
+npm install -s styled-components reset-css &>> ${log_path} &
+# cp ../templates/components.js src/components.js &> /dev/null
+wait
+installed "styled-components" "💅"
+
+installing "react-routers"
+npm install -s react-router react-router-dom &>> ${log_path} &
+wait
+installed "react-routers" "🚪"
+
+installing "redux"
+npm install -s redux react-redux redux-thunk connected-react-router &>> ${log_path} &
+wait
+installed "redux" "🔗♂️"
+
+installing "eslint & prettier"
+npm i -D stylelint stylelint-processor-styled-components  stylelint-config-styled-components stylelint-config-recommended prettier eslint-config-prettier &>> ${log_path} &
+wait
+installed "eslint & prettier" "👷"

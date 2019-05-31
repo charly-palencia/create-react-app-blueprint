@@ -31,9 +31,9 @@ function installing {
 }
 
 function installed {
-  printf "\r${CHECK_MARK} ${GREEN}${1} installed successfully${NC}\n"
-  if [ ! -z "${2}" ]; then
-    printf "\t${2}\n"
+  printf "\r${2-$CHECK_MARK} ${GREEN}${1} installed successfully${NC}\n"
+  if [ ! -z "${3}" ]; then
+    printf "\t${3}\n"
   fi
 }
 
