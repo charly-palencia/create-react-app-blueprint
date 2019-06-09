@@ -2,6 +2,8 @@
 
 Easy way to setup a full react+ redux application without boilerplates! :tada:
 
+[Here the article]() that describe all the libraries used for this script and why they are used. enjoy it :book:.
+
 ## Prerequisites
 
 - [wget](https://www.gnu.org/software/wget/) 
