@@ -20,7 +20,7 @@ if [ -z "$PROJECT_FOLDER" ]; then
   exit 125
 fi
 
-source ~/.zshrc &>> ${log_path}
+source ~/.zshrc &> ${log_path}
 source ./helper.sh;
 
 title " SETTING UP REACT BLUEPRINT" $LOGO;
@@ -43,63 +43,63 @@ title " SETTING UP REACT BLUEPRINT" $LOGO;
 # ============ NODE VERSION =============
 LTS_NODE_VERSION="`wget -qO- --wait=20 https://resolve-node.now.sh/lts`"
 installing "Node version: ${LTS_NODE_VERSION}" 
-`nvm install $LTS_NODE_VERSION &>> ${log_path}` &
+`nvm install $LTS_NODE_VERSION &> ${log_path}` &
 wait
-nvm use $LTS_NODE_VERSION &>> ${log_path}
+nvm use $LTS_NODE_VERSION &> ${log_path}
 installed "Node version: ${LTS_NODE_VERSION}"
 
 # ============ CREATE REACT APP =============
 installing "React app via create react app"
-npx -q create-react-app $PROJECT_FOLDER &>> ${log_path} &
+npx -q create-react-app $PROJECT_FOLDER &> ${log_path} &
 wait
 installed "\nReact app"
 cd $PROJECT_FOLDER
 echo $LTS_NODE_VERSION > .nvmrc
-nvm use &>> ${log_path}
+nvm use &> ${log_path}
 
 # ============ CHECK ENGINE =============
 installing "Node check-engine"
-npx -q json -I -f package.json -e "this.engines={\"node\":\">=$LTS_NODE_VERSION\"}" &>> ${log_path} &
-npx -q json -I -f package.json -e "this.scripts.preinstall=\"npx check-engine\"" &>> ${log_path} &
-npx -q check-engine &>> ${log_path} &
+npx -q json -I -f package.json -e "this.engines={\"node\":\">=$LTS_NODE_VERSION\"}" &> ${log_path} &
+npx -q json -I -f package.json -e "this.scripts.preinstall=\"npx check-engine\"" &> ${log_path} &
+npx -q check-engine &> ${log_path} &
 wait
 installed "node check engine"
 
 # ============ NPM LIBRARIES =============
 installing "styled-components"
-npm install -s styled-components reset-css &>> ${log_path} &
+npm install -s styled-components reset-css &> ${log_path} &
 wait
 installed "styled-components" $NAILS
 
 installing "react-routers"
-npm install -s react-router react-router-dom &>> ${log_path} &
+npm install -s react-router react-router-dom &> ${log_path} &
 wait
 installed "react-routers" $DOOR
 
 installing "redux"
-npm install -s redux react-redux redux-thunk connected-react-router &>> ${log_path} &
+npm install -s redux react-redux redux-thunk connected-react-router &> ${log_path} &
 wait
 installed "redux" $CHAIN
 
 installing "eslint & prettier"
-npm i -D stylelint stylelint-processor-styled-components  stylelint-config-styled-components stylelint-config-recommended prettier eslint-config-prettier &>> ${log_path} &
+npm i -D stylelint stylelint-processor-styled-components  stylelint-config-styled-components stylelint-config-recommended prettier eslint-config-prettier &> ${log_path} &
 wait
 installed "eslint & prettier" $CONSTRUCTOR
 
 output "Modify default example..."
 
-cp --interactive ../templates/components.js src/components.js
-cp --interactive ../templates/globalStyles.js src/globalStyles.js
+cp  ../templates/components.js src/components.js
+cp  ../templates/globalStyles.js src/globalStyles.js
 
 output "Include basic redux example..."
-cp --interactive ../templates/store.js src/store.js
-cp --interactive -r ../templates/redux/actions src/actions
-cp --interactive -r ../templates/redux/actionTypes src/actionTypes
-cp --interactive -r ../templates/redux/reducers src/reducers
+cp ../templates/store.js src/store.js
+cp -R ../templates/redux/actions src/actions
+cp -R ../templates/redux/actionTypes src/actionTypes
+cp -R ../templates/redux/reducers src/reducers
 
 output "Include example pages ..."
-cp --interactive ../templates/history.js src/history.js
-cp --interactive -r ../templates/pages src/pages
+cp  ../templates/history.js src/history.js
+cp  -R ../templates/pages src/pages
 
 output "Change defaut APP.js"
 cp ../templates/App.js src/App.js

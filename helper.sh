@@ -24,13 +24,13 @@ LINUX='LINUX'
 
 function title {
   TITLE=$1
-  printf "\n${2-$GEAR} ${TITLE}\n"
+  printf "\n${2-$GEAR}  ${TITLE}\n"
   printf -- "··············································\n"
 }
 
 function output {
   TITLE=$1
-  printf "\n${2-$GEAR} ${TITLE}\n"
+  printf "\n${2-$GEAR}  ${TITLE}\n"
 }
 
 function installing {
@@ -45,7 +45,6 @@ function installed {
 }
 
 function command_exists {
-  echo $(command -v "${1}")
   command -v "$1" &> /dev/null
 }
 
