@@ -27,7 +27,7 @@ wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blu
 
 After installation, go into your app folder and run `npm run start`. That's all, your React + Redux project is ready to test :atom:.
 
-*Note*: Installing *CRA* app takes a while, so be patient :smile:.
+**Note**: Installing *CRA* app takes a while, so be patient :smile:.
 
 ## Why should I use CRA-blueprint?
 
