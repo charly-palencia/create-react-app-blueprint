@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "==="
 ROOT_PATH =$(pwd)
 FILE1=$1
 APP_PATH = "$ROOT_PATH/$FILE1"
