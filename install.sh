@@ -1,6 +1,9 @@
 #!/bin/bash
 
-project_folder="${1}"
+for var in "$@"
+do
+    echo "$var"
+done
 dir=`pwd`
 echo "==>${dir}/${project_folder}"
  
