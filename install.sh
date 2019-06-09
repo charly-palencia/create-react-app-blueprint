@@ -10,5 +10,6 @@ git clone https://github.com/charly-palencia/create-react-app-blueprint.git  /va
 #go to tmp folder
 cd /var/tmp/create-react-app-blueprint
 #Install CRA blueprint
-./main.sh "$app_path"
+echo "=>>> ${app_path}"
+./main.sh $app_path
 cd -
