@@ -1,5 +1,5 @@
 #!/bin/bash
-PROJECT_FOLDER=$1
+#PROJECT_FOLDER=$1
 root_path=$(pwd)
 echo "==>${root_path}"
 #$app_path="${root_path}/${file}"
