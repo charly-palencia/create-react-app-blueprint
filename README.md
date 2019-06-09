@@ -1,5 +1,5 @@
 <p align="center">
-<img src="../../images/logos/git-logo.png" alt="Logo" width="80" height="80">
+<img src="../../images/logos/logo.png" alt="Logo">
 
   <h3 align="center">Create React App Bluechip</h3>
   <p align="center">
