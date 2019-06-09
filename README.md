@@ -9,7 +9,7 @@
 
 ## Summary 
 
-[Here the article]() that describe all the libraries used for this script and why they are used. enjoy it :book:.
+If you want to see all the step by step for this project please [go to this article](). enjoy it :book:.
 
 ## Prerequisites
 
