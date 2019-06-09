@@ -1,7 +1,7 @@
 #!/bin/bash
 ROOT_PATH =$(pwd)
 FILE1=$1
-
+echo $ROOT_PATH
 rm -rf /var/tmp/create-react-app-blueprint
 git clone https://github.com/charly-palencia/create-react-app-blueprint.git  /var/tmp/create-react-app-blueprint
 cd /var/tmp/create-react-app-blueprint
