@@ -9,15 +9,15 @@
 
 ## Summary 
 
-If you want to see all the step by step for this project please [go to this article](). enjoy it :book:.
+If you want to see all the step by step for this project please [go to this article](). Please enjoy it :book:.
 
 ## Prerequisites
 
-- [wget](https://www.gnu.org/software/wget/) 
-- [git](https://git-scm.com/)
+- [WGET](https://www.gnu.org/software/wget/) 
+- [GIT](https://git-scm.com/)
 
 ## Quickstart
-Run this command in your terminal to create a new project
+Run this command in your terminal to create a new project.
 
 ```
 wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [folderPath]
