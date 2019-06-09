@@ -3,7 +3,7 @@
 
   <h3 align="center">Create React App(CRA) Bluechip</h3>
   <p align="center">
-    Setup React+ Redux application with one line without boilerplates! :tada:.
+    Setup React+ Redux application with one line without Boilerplates! :tada:.
   </p>
 </p>
 
