@@ -21,7 +21,7 @@ After installation go into your new folder and run `npm run start`. That's all, 
 
 ## Support me
 
-## OS checker
+## OS verification
 - [x] Mac O SMojave
 - [x] Ubuntu
 - [ ] Window 
