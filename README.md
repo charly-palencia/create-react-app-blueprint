@@ -1,9 +1,9 @@
 <p align="center">
 <img src="logo.png" alt="Logo">
 
-  <h3 align="center">Create React App Bluechip</h3>
+  <h3 align="center">Create React App(CRA) Bluechip</h3>
   <p align="center">
-  Easy way to setup a full react+ redux application without boilerplates! :tada:.
+    Setup react+ redux application with one line without boilerplates! :tada:.
   </p>
 </p>
 
