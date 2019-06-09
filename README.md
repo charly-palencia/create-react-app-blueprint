@@ -17,10 +17,10 @@
 - [git](https://git-scm.com/)
 
 ## Quickstart
-execture in your terminal command below
+Run this command in your terminal to create a new project
 
 ```
-wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [.|folderPath]
+wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [folderPath]
 ```
 
 ![](out.gif)
