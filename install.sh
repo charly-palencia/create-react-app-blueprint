@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "+++++${1}"
+project_folder="${1}"
 dir=`pwd`
-echo "==>${dir}/${project_folder}"
+app_path="${dir}/${project_folder}"
+echo "==> ${app_path}"
  
