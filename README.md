@@ -14,8 +14,11 @@ execture in your terminal command below
   wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [.|folderPath]
 ```
 
+![](out.gif)
+
 After installation go into your new folder and run `npm run start`. That's all, your React + Redux project is ready to test!
 
+*Note*: Installing CRA app takes a while, so be patient :smile:.
 
 ## Why should I use CRA-blueprint?
 
