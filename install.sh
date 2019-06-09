@@ -1,8 +1,9 @@
 #!/bin/bash
+PROJECT_FOLDER=$1
 root_path=$(pwd)
-file=$1
-$app_path="${root_path}/${file}"
-echo $app_path
+echo root_path
+#$app_path="${root_path}/${file}"
+#echo $app_path
 #rm -rf /var/tmp/create-react-app-blueprint
 #git clone https://github.com/charly-palencia/create-react-app-blueprint.git  /var/tmp/create-react-app-blueprint
 #cd /var/tmp/create-react-app-blueprint
