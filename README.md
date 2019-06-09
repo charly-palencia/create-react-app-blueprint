@@ -29,6 +29,17 @@ After installation, go into your app folder and run `npm run start`. That's all,
 
 **Note**: Installing *CRA* app takes a while, so be patient :smile:.
 
+## What does this setup included?
+
+- NVM
+- Create React App
+- Redux
+- Styled-Component
+- Prettier
+- React-router
+- jsConfig.js
+
+
 ## Why should I use CRA-blueprint?
 
 [TBD]
