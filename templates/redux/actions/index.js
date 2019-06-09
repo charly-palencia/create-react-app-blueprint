@@ -1,4 +1,4 @@
-import { UPDATE_COLOR } from "../actionTypes";
+import { UPDATE_COLOR } from "actionTypes";
 
 const successFetchColor = colorResponse => {
   return {

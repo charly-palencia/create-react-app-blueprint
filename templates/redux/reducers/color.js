@@ -1,4 +1,4 @@
-import { UPDATE_COLOR } from "../actionTypes";
+import { UPDATE_COLOR } from "actionTypes";
 
 const initialState = {
   color: "#282c34"
