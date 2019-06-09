@@ -1,7 +1,7 @@
 #!/bin/bash
 #PROJECT_FOLDER=$1
-root_path=$(pwd)
-echo "==>${root_path}"
+dir=`pwd`
+echo "==>${dir}"
 #$app_path="${root_path}/${file}"
 #echo $app_path
 #rm -rf /var/tmp/create-react-app-blueprint
