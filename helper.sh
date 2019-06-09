@@ -3,13 +3,15 @@
 set encoding=utf-8
 
 #EMOJIS
-GEAR="\xE2\x9A\x99\xEF\xB8\x8F"
-SMALL_BLUE_DIAMOND="\xF0\x9F\x94\xB9"
-CHECK="\xE2\x9C\x85"
+GEAR="⚙️"
+SMALL_BLUE_DIAMOND="🔹"
 HOURGLASS="\xE2\x8F\xB3"
-SMILING_FACE_SUNGLASSES="\xF0\x9F\x98\x8E"
 CHECK_MARK=✓
-LOGO=⚛️:
+CHAIN="🔗"
+DOOR="🚪"
+NAILS="💅"
+CONSTRUCTOR="👷"
+
 
 #COLORS
 RED='\e[31m'
@@ -24,6 +26,11 @@ function title {
   TITLE=$1
   printf "\n${2-$GEAR} ${TITLE}\n"
   printf -- "··············································\n"
+}
+
+function output {
+  TITLE=$1
+  printf "\n${2-$GEAR} ${TITLE}\n"
 }
 
 function installing {

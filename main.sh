@@ -23,24 +23,22 @@ fi
 source ~/.zshrc &>> ${log_path}
 source ./helper.sh;
 
-title "SETTING UP REACT BLUEPRINT" $LOGO;
-
-printf "\nChecking dependencies... "
+title " SETTING UP REACT BLUEPRINT" $LOGO;
 
 # ============ NVM =============
-if command_exists nvm; then
-  title "NVM already installed" $CHECK
-else
-  installing "NVM"
-  $(wget --wait=20 -qO -  https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash &>> ${log_path}) &
-  wait
-fi
+ if command_exists nvm; then
+   title "NVM already installed" $CHECK
+ else
+   installing "NVM"
+   $(wget --wait=20 -qO -  https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash &>> ${log_path}) &
+   wait
+ fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-installed "NVM"
+# installed "NVM"
 
 # ============ NODE VERSION =============
 LTS_NODE_VERSION="`wget -qO- --wait=20 https://resolve-node.now.sh/lts`"
@@ -55,7 +53,6 @@ installing "React app via create react app"
 npx -q create-react-app $PROJECT_FOLDER &>> ${log_path} &
 wait
 installed "\nReact app"
-echo $PROJECT_FOLDER
 cd $PROJECT_FOLDER
 echo $LTS_NODE_VERSION > .nvmrc
 nvm use &>> ${log_path}
@@ -71,21 +68,42 @@ installed "node check engine"
 # ============ NPM LIBRARIES =============
 installing "styled-components"
 npm install -s styled-components reset-css &>> ${log_path} &
-# cp ../templates/components.js src/components.js &> /dev/null
 wait
-installed "styled-components" "💅"
+installed "styled-components" $NAILS
 
 installing "react-routers"
 npm install -s react-router react-router-dom &>> ${log_path} &
 wait
-installed "react-routers" "🚪"
+installed "react-routers" $DOOR
 
 installing "redux"
 npm install -s redux react-redux redux-thunk connected-react-router &>> ${log_path} &
 wait
-installed "redux" "🔗♂️"
+installed "redux" $CHAIN
 
 installing "eslint & prettier"
 npm i -D stylelint stylelint-processor-styled-components  stylelint-config-styled-components stylelint-config-recommended prettier eslint-config-prettier &>> ${log_path} &
 wait
-installed "eslint & prettier" "👷"
+installed "eslint & prettier" $CONSTRUCTOR
+
+output "Modify default example..."
+
+cp --interactive ../templates/components.js src/components.js
+cp --interactive ../templates/globalStyles.js src/globalStyles.js
+
+output "Include basic redux example..."
+cp --interactive ../templates/store.js src/store.js
+cp --interactive -r ../templates/redux/actions src/actions
+cp --interactive -r ../templates/redux/actionTypes src/actionTypes
+cp --interactive -r ../templates/redux/reducers src/reducers
+
+output "Include example pages ..."
+cp --interactive ../templates/history.js src/history.js
+cp --interactive -r ../templates/pages src/pages
+
+output "Change defaut APP.js"
+cp ../templates/App.js src/App.js
+cp ../templates/index.js src/index.js
+
+output "React Blueprint completed!" "🍺🎉"
+
