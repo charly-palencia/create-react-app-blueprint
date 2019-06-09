@@ -7,7 +7,7 @@
   </p>
 </p>
 
-## TLTR;
+## Summary 
 
 [Here the article]() that describe all the libraries used for this script and why they are used. enjoy it :book:.
 
