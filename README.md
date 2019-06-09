@@ -20,7 +20,7 @@
 execture in your terminal command below
 
 ```
-  wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [.|folderPath]
+wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [.|folderPath]
 ```
 
 ![](out.gif)
