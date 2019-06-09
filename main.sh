@@ -88,22 +88,24 @@ installed "eslint & prettier" $CONSTRUCTOR
 
 output "Modify default example..."
 
-cp  ../templates/components.js src/components.js
-cp  ../templates/globalStyles.js src/globalStyles.js
+pwd
+
+cp  -f ../templates/components.js src/components.js
+cp  -f ../templates/globalStyles.js src/globalStyles.js
 
 output "Include basic redux example..."
 cp ../templates/store.js src/store.js
-cp -R ../templates/redux/actions src/actions
-cp -R ../templates/redux/actionTypes src/actionTypes
-cp -R ../templates/redux/reducers src/reducers
+cp -rf ../templates/redux/actions src/actions
+cp -rf ../templates/redux/actionTypes src/actionTypes
+cp -rf ../templates/redux/reducers src/reducers
 
 output "Include example pages ..."
 cp  ../templates/history.js src/history.js
-cp  -R ../templates/pages src/pages
+cp  -rf ../templates/pages src/pages
 
 output "Change defaut APP.js"
-cp ../templates/App.js src/App.js
-cp ../templates/index.js src/index.js
+cp -f ../templates/App.js src/App.js
+cp -f ../templates/index.js src/index.js
 
 output "React Blueprint completed!" "🍺🎉"
 
