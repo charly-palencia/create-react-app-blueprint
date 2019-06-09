@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "==="
-ROOT_PATH=pwd
-FILE1=$1
-APP_PATH="$ROOT_PATH/$FILE1"
-echo $APP_PATH
+root_path=$(pwd)
+file=$1
+$app_path="${root_path}/${file}"
+echo $app_path
 #rm -rf /var/tmp/create-react-app-blueprint
 #git clone https://github.com/charly-palencia/create-react-app-blueprint.git  /var/tmp/create-react-app-blueprint
 #cd /var/tmp/create-react-app-blueprint
