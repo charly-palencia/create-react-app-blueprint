@@ -17,7 +17,7 @@ execture in your terminal command below
 After installation go into your new folder and run `npm run start`. That's all, your React + Redux project is ready to test!
 
 
-## Why should i use CRA-blueprint?
+## Why should I use CRA-blueprint?
 
 ## Support me
 
