@@ -90,22 +90,22 @@ output "Modify default example..."
 
 pwd
 
-cp  -f ../templates/components.js src/components.js
-cp  -f ../templates/globalStyles.js src/globalStyles.js
+cp  -f /var/tmp/create-react-app-blueprint/templates/components.js src/components.js
+cp  -f /var/tmp/create-react-app-blueprint/templates/globalStyles.js src/globalStyles.js
 
 output "Include basic redux example..."
-cp ../templates/store.js src/store.js
-cp -rf ../templates/redux/actions src/actions
-cp -rf ../templates/redux/actionTypes src/actionTypes
-cp -rf ../templates/redux/reducers src/reducers
+cp /var/tmp/create-react-app-blueprint/templates/store.js src/store.js
+cp -rf /var/tmp/create-react-app-blueprint/templates/redux/actions src/actions
+cp -rf /var/tmp/create-react-app-blueprint/templates/redux/actionTypes src/actionTypes
+cp -rf /var/tmp/create-react-app-blueprint/templates/redux/reducers src/reducers
 
 output "Include example pages ..."
-cp  ../templates/history.js src/history.js
-cp  -rf ../templates/pages src/pages
+cp  -f /var/tmp/create-react-app-blueprint/templates/history.js src/history.js
+cp  -rf /var/tmp/create-react-app-blueprint/templates/pages src/pages
 
 output "Change defaut APP.js"
-cp -f ../templates/App.js src/App.js
-cp -f ../templates/index.js src/index.js
+cp -f /var/tmp/create-react-app-blueprint/templates/App.js src/App.js
+cp -f /var/tmp/create-react-app-blueprint/templates/index.js src/index.js
 
 output "React Blueprint completed!" "🍺🎉"
 
