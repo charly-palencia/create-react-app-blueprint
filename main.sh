@@ -30,7 +30,7 @@ title " SETTING UP REACT BLUEPRINT" $LOGO;
    title "NVM already installed" $CHECK
  else
    installing "NVM"
-   $(wget --wait=20 -qO -  https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash &>> ${log_path}) &
+   $(wget --wait=20 -qO -  https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash &> ${log_path}) &
    wait
  fi
 
