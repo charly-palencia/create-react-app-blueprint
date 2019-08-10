@@ -53,3 +53,9 @@ After installation, go into your app folder and run `npm run start`. That's all,
 - [x] Ubuntu
 - [ ] Window 
 
+
+## TODO list
+- [ ] Include cramp cli
+- [ ] Include example from github service from latest version
+- [ ] Include automatic update for cramp cli command
+- [ ] 
