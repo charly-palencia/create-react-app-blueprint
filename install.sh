@@ -13,5 +13,22 @@
 ##echo "=>>> ${app_path}"
 ##./main.sh $app_path
 ##cd -
-curl http://stash.compciv.org/ssa_baby_names/names.zip  \
-  --output /usr/local/bin/crabp
+
+show_spinner()
+{
+  local -r pid="${1}"
+  local -r delay='0.75'
+  local spinstr='\|/-'
+  local temp
+  while ps a | awk '{print $1}' | grep -q "${pid}"; do
+    temp="${spinstr#?}"
+    printf " [%c]  " "${spinstr}"
+    spinstr=${temp}${spinstr%"${temp}"}
+    sleep "${delay}"
+    printf "\b\b\b\b\b\b"
+  done
+  printf "    \b\b\b\b"
+}
+(wget -O /usr/local/bin/crabp https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/helper.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/main.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/crabp.sh ) &
+show_spinner "$!"
+chmod +x /usr/local/bin/crabp

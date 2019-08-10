@@ -20,7 +20,13 @@ If you want to see all the step by step for this project please [go to this arti
 Run this command in your terminal to create a new project.
 
 ```
-wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash -s [folderPath]
+wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | sudo bash
+```
+
+After that, close your current terminal and open a new terminal.
+
+```
+crabp --help
 ```
 
 ![](out.gif)
@@ -58,4 +64,4 @@ After installation, go into your app folder and run `npm run start`. That's all,
 - [ ] Include cramp cli
 - [ ] Include example from github service from latest version
 - [ ] Include automatic update for cramp cli command
-- [ ] 
+- [ ] Rename helper methods to avoid conflicts 

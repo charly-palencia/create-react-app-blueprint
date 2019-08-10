@@ -1,43 +1,43 @@
 #!/bin/bash
-clear
-PROJECT_FOLDER=$1
-root_path=$(pwd)
-log_path=/dev/null
--rm log.txt &> ${log_path}
+create_cra_project(){
+  clear
+  PROJECT_FOLDER=$1
+  root_path=$(pwd)
+  log_path=/dev/null
+  -rm log.txt &> ${log_path}
 
-for arg in "$@"
-do
-  if [ "$arg" == "--verbose" ] || [ "$arg" == "-v" ]
-  then
-    install -m 777 /dev/null log.txt
-    log_path="${root_path}/log.txt"
-    echo 'React Bluepint Logs' > ${log_path}
+  for arg in "$@"
+  do
+    if [ "$arg" == "--verbose" ] || [ "$arg" == "-v" ]
+    then
+      install -m 777 /dev/null log.txt
+      log_path="${root_path}/log.txt"
+      echo 'React Bluepint Logs' > ${log_path}
+    fi
+  done
+
+  if [ -z "$PROJECT_FOLDER" ]; then
+    echo "Use path folder"
+    exit 125
   fi
-done
 
-if [ -z "$PROJECT_FOLDER" ]; then
-  echo "Use path folder"
-  exit 125
-fi
-
-source ~/.zshrc &> ${log_path}
-source ./helper.sh;
+# source ~/.zshrc &> ${log_path}
 
 title " SETTING UP REACT BLUEPRINT" $LOGO;
 
 # ============ NVM =============
- if command_exists nvm; then
-   title "NVM already installed" $CHECK
- else
-   installing "NVM"
+if command_exists nvm; then
+  title "NVM already installed" $CHECK
+else
+  installing "NVM"
 
-   bash <(wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh) >myscript.log 2>&1 </dev/null &
-   show_spinner "$!"
- fi
+  bash <(wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh) >myscript.log 2>&1 </dev/null &
+  show_spinner "$!"
+fi
 
- export NVM_DIR="$HOME/.nvm"
- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" >myscript.log 2>&1 </dev/null 
- [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" >myscript.log 2>&1 </dev/null 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" >myscript.log 2>&1 </dev/null 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" >myscript.log 2>&1 </dev/null 
 
 installed "NVM"
 
@@ -91,24 +91,18 @@ npm i -D stylelint stylelint-processor-styled-components  stylelint-config-style
 show_spinner "$!"
 installed "eslint & prettier" $CONSTRUCTOR
 
-output "Modify default example..."
-
-cp  -f /var/tmp/create-react-app-blueprint/templates/components.js src/components.js
-cp  -f /var/tmp/create-react-app-blueprint/templates/globalStyles.js src/globalStyles.js
-
-output "Include basic redux example..."
-cp /var/tmp/create-react-app-blueprint/templates/store.js src/store.js
-cp -rf /var/tmp/create-react-app-blueprint/templates/redux/actions src/actions
-cp -rf /var/tmp/create-react-app-blueprint/templates/redux/actionTypes src/actionTypes
-cp -rf /var/tmp/create-react-app-blueprint/templates/redux/reducers src/reducers
-
-output "Include example pages ..."
-cp  -f /var/tmp/create-react-app-blueprint/templates/history.js src/history.js
-cp  -rf /var/tmp/create-react-app-blueprint/templates/pages src/pages
-
-output "Change defaut APP.js"
-cp -f /var/tmp/create-react-app-blueprint/templates/App.js src/App.js
-cp -f /var/tmp/create-react-app-blueprint/templates/index.js src/index.js
+output "Include default example..."
+DEMO_FILES=(components.js globalStyles.js store.js redux/actions/index.js redux/actionTypes/index.js redux/reducers/index redux/reducers/color.js history.js pages/Home.js App.js index.js)
+mkdir -p redux/actions
+mkdir -p redux/actionTypes
+mkdir -p redux/reducers
+mkdir -p pages
+for i in "${DEMO_FILES[@]}"
+do
+  bash <(wget -qO "./$i" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/$i") >myscript.log 2>&1 </dev/null &
+  show_spinner "$!"
+done
 
 output "React Blueprint completed!" "🍺🎉"
 
+}

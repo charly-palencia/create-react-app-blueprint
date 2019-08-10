@@ -25,7 +25,7 @@ BASH_CLI_OPT_ALT_NAME[0]="create"
 # Data type consists of string, boolean, and cmd.
 #   - string does not allow you set empty option value
 #   - object allows you flag the option without giving value
-#   - cmd is the command used in various situations in your script. 
+#   - cmd is the command used in various situations in your script.
 BASH_CLI_OPT_DATA_TYPE[0]="cmd"
 
 # Setting mandatory and optional parameters for cmd "crabp"
@@ -64,20 +64,14 @@ BASH_CLI_OPT_DESC[0]="Create React Project using CRA blueprint menu dependencies
 # BASH_CLI_OPT_DESC[3]="To print text from the value of -t"
 
 # Implementation of "crabp" command
-# 
+#
 # Getting parameter values
-# 
+#
 # BASH_CLI_OPT_VALUE[] is an array variable that declared by the template base.sh
 # The value of BASH_CLI_OPT_VALUE[] will be managed by the template
-# 
+#
 create() {
-  # projectName
-  local projectName=${BASH_CLI_OPT_VALUE[0]}
-
-  if [ ${text} == true]; then
-    echo "${text}"
-  fi
-  exit
+  create_cra_project $1
 }
 
 # Base CLI commands
@@ -233,11 +227,10 @@ process() {
       if [ "${BASH_CLI_OPT_VALUE[$j]}" == "invoked" ];  then
         BASH_CLI_CURRENT_CMD_INDEX=$j
         validate_mandatory_options
-        ${BASH_CLI_OPT_NAME[$BASH_CLI_CURRENT_CMD_INDEX]} 
-        # ${BASH_CLI_OPT_NAME[$BASH_CLI_CURRENT_CMD_INDEX]} "${BASH_CLI_ALL_ARGS}"
+        # ${BASH_CLI_OPT_NAME[$BASH_CLI_CURRENT_CMD_INDEX]} 
+        ${BASH_CLI_OPT_NAME[$BASH_CLI_CURRENT_CMD_INDEX]} "${BASH_CLI_ALL_ARGS}"
         break
       fi
-
     fi
   done
 }

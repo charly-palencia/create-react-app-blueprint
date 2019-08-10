@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set encoding=utf-8
+# set encoding=utf-8
 
 #EMOJIS
 GEAR="⚙️"
