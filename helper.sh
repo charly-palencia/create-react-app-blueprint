@@ -11,6 +11,7 @@ CHAIN="🔗"
 DOOR="🚪"
 NAILS="💅"
 CONSTRUCTOR="👷"
+ERROR="🛑"
 
 
 #COLORS
@@ -61,5 +62,14 @@ show_spinner()
     sleep "${delay}"
     printf "\b\b\b\b\b\b"
   done
+
+  #Validate if command line response with errors
+  wait $pid
+  local -r my_status=$?
+  if [ $my_status -ne 0 ]; then
+    local -r line=$(tail -1 ./myscript.log)
+    printf "\r${2-$ERROR} ${RED}${line}${NC}\n"
+    exit 1
+  fi
   printf "    \b\b\b\b"
 }
