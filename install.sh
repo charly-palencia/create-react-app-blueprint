@@ -33,16 +33,6 @@ if [ -z "$LC_ALL" ]; then
 
     For any cases, please refresh your terminal (e.g. source ~/.bashrc) or open a new tab and try again the installation process.\n"
   exit 1;
-  # if  (echo $SHELL | grep "bash"); then
-  #   echo "entro aca";
-  #   [ -e ~/.bash_profile ] && { echo "${locales}" >> ~/.bash_profile; . ~/.bash_profile; }
-  #   [ -e ~/.bashrc ] && { echo "${locales}" >> ~/.bashrc;}
-  #   /bin/bash -c 'source ~/.bashrc'
-  # else
-  #   [ -e ~/.zshrc ] && { echo "${locales}" >> ~/.zshrc; . ~/.zshrc; }
-  # fi
-else
-  echo "esta variable"
 fi
 
 

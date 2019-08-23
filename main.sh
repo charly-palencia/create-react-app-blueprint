@@ -25,12 +25,12 @@ create_cra_project(){
 # source ~/.zshrc &> ${log_path}
 
 title " SETTING UP REACT BLUEPRINT" $LOGO;
-nvm_installed=0
 
 # ============ NVM =============
-if command_exists nvm; then
+if [ -d "$HOME/.nvm" ]; then
   title "NVM already installed" $CHECK
 else
+  echo "Some default source line will be add to your profile (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc). Please,  close your current terminal, open a new terminal, and try verifying again after process ended."
   installing "NVM"
   nvm_installed=1
 
@@ -41,11 +41,11 @@ else
 [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
 [ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
 
-  if  (echo $0 | grep -Eq "bash\$"); then
-    test -f "~/.bash_profile" && echo "${local_nvm_setting}" > ~/.bash_profile
-    test -f "~/.bashrc" && echo "${local_nvm_setting}" >  ~/.bashrc
+if [ $SHELL == "/bin/sh" ]; then
+    [ -f ~/.bash_profile ] && echo "${local_nvm_setting}" >> ~/.bash_profile
+    [ -f ~/.bashrc ] && echo "${local_nvm_setting}" >>  ~/.bashrc
   else
-    test -f "~/.zshrc" && echo "${local_nvm_setting}" >  ~/.zshrc
+     [ -f ~/.zshrc ] && echo "${local_nvm_setting}" >>  ~/.zshrc
   fi
 fi
 
@@ -124,6 +124,5 @@ bash <(wget -qO "./jsconfig.json" "https://raw.githubusercontent.com/charly-pale
 show_spinner "$!"
 
 output "React Blueprint completed!" "🍺🎉"
-[[ -z "$nvm_installed" ]] && echo "NVM was installed but required a refresh for your shell profile (e.g. source ~/.bashrc) or open a new tab"
 rm ./myscript.log
 }

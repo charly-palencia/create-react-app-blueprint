@@ -46,7 +46,7 @@ function installed {
 }
 
 function command_exists {
-  command -v "$1" &> /dev/null
+  type "$1" &> /dev/null
 }
 
 show_spinner()
