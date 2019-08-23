@@ -99,7 +99,7 @@ mkdir -p redux/reducers
 mkdir -p pages
 for i in "${DEMO_FILES[@]}"
 do
-  bash <(wget -qO "./$i" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/$i") >myscript.log 2>&1 </dev/null &
+  bash <(wget -qO "./src/$i" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/$i") >myscript.log 2>&1 </dev/null &
   show_spinner "$!"
 done
 
