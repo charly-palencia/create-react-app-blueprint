@@ -55,6 +55,7 @@ installed "Node version: ${LTS_NODE_VERSION}"
 installing "React app via create react app"
 npx -q create-react-app $PROJECT_FOLDER >myscript.log 2>&1 </dev/null &
 show_spinner "$!"
+rm ./myscript.log
 cd $PROJECT_FOLDER
 echo $LTS_NODE_VERSION > .nvmrc
 nvm use >myscript.log 2>&1 </dev/null
@@ -104,5 +105,5 @@ do
 done
 
 output "React Blueprint completed!" "🍺🎉"
-
+rm ./myscript.log
 }
