@@ -79,6 +79,8 @@ installed "React app via create react app"
 installing "Node check-engine"
 npx -q json -I -f package.json -e "this.engines={\"node\":\">=$LTS_NODE_VERSION\"}" >myscript.log 2>&1 </dev/null &
 show_spinner "$!"
+npx -q json -I -f package.json -e "this.engines={\"node\":\">=$LTS_NODE_VERSION\"}" >myscript.log 2>&1 </dev/null &
+show_spinner "$!"
 npx -q json -I -f package.json -e "this.scripts.preinstall=\"npx check-engine\"" >myscript.log 2>&1 </dev/null &
 show_spinner "$!"
 npx -q check-engine >myscript.log 2>&1 </dev/null &
@@ -87,7 +89,7 @@ installed "node check engine"
 
 # ============ NPM LIBRARIES =============
 installing "styled-components"
-npm install -s styled-components reset-css >myscript.log 2>&1 </dev/null &
+npm install -s styled-components styled-components.macro reset-css >myscript.log 2>&1 </dev/null &
 show_spinner "$!"
 installed "styled-components" $NAILS
 
@@ -107,7 +109,7 @@ show_spinner "$!"
 installed "eslint & prettier" $CONSTRUCTOR
 
 output "Include default example..."
-DEMO_FILES=(components.js globalStyles.js store.js actions/index.js actionTypes/index.js reducers/index reducers/color.js history.js pages/Home.js App.js index.js )
+DEMO_FILES=(components.js globalStyles.js store.js actions/index.js actionTypes/index.js reducers/index.js reducers/color.js history.js pages/Home.js App.js index.js )
 mkdir -p src/actions
 mkdir -p src/actionTypes
 mkdir -p src/reducers
@@ -118,7 +120,7 @@ do
   show_spinner "$!"
 done
 
-bash <(wget -qO "./jsconfig.js" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/jsconfig.js") >myscript.log 2>&1 </dev/null &
+bash <(wget -qO "./jsconfig.json" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/jsconfig.json") >myscript.log 2>&1 </dev/null &
 show_spinner "$!"
 
 output "React Blueprint completed!" "🍺🎉"
