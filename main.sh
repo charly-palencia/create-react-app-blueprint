@@ -93,11 +93,11 @@ show_spinner "$!"
 installed "eslint & prettier" $CONSTRUCTOR
 
 output "Include default example..."
-DEMO_FILES=(components.js globalStyles.js store.js redux/actions/index.js redux/actionTypes/index.js redux/reducers/index redux/reducers/color.js history.js pages/Home.js App.js index.js)
-mkdir -p redux/actions
-mkdir -p redux/actionTypes
-mkdir -p redux/reducers
-mkdir -p pages
+DEMO_FILES=(components.js globalStyles.js store.js redux/actions/index.js redux/actionTypes/index.js redux/reducers/index redux/reducers/color.js history.js pages/Home.js App.js index.js ../globalStyles.js)
+mkdir -p src/redux/actions
+mkdir -p src/redux/actionTypes
+mkdir -p src/redux/reducers
+mkdir -p src/pages
 for i in "${DEMO_FILES[@]}"
 do
   bash <(wget -qO "./src/$i" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/$i") >myscript.log 2>&1 </dev/null &
