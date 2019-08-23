@@ -1,4 +1,50 @@
 #!/bin/bash
+ERROR="🛑"
+RED='\e[31m'
+NC='\e[0m' # No Color
+
+function command_exists {
+  command -v "$1" &> /dev/null
+}
+
+if [ -z "$LC_ALL" ]; then
+  if command_exists apt-get; then
+    sudo apt-get install locales
+  fi
+
+  printf  "\r${2-$ERROR} ${RED}ERROR Locales are not found.${NC}
+
+  🐧 Linux OS:
+  You must to include those variable in your shell profile:
+
+    export LANGUAGE=en_US.UTF-8
+    export LANG=en_US.UTF-8
+    export LC_ALL=\"en_US.UTF-8\"
+
+  After that, run in your terminal this:
+    sudo locale-gen en_US.UTF-8
+
+  🍏 MAC OS:
+
+  You must to include those variable in your shell profile:
+
+  export LC_CTYPE=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+
+    For any cases, please refresh your terminal (e.g. source ~/.bashrc) or open a new tab and try again the installation process.\n"
+  exit 1;
+  # if  (echo $SHELL | grep "bash"); then
+  #   echo "entro aca";
+  #   [ -e ~/.bash_profile ] && { echo "${locales}" >> ~/.bash_profile; . ~/.bash_profile; }
+  #   [ -e ~/.bashrc ] && { echo "${locales}" >> ~/.bashrc;}
+  #   /bin/bash -c 'source ~/.bashrc'
+  # else
+  #   [ -e ~/.zshrc ] && { echo "${locales}" >> ~/.zshrc; . ~/.zshrc; }
+  # fi
+else
+  echo "esta variable"
+fi
+
 
 # project_folder="${1}"
 # dir=`pwd`

@@ -1,4 +1,5 @@
 #!/bin/bash
+export LC_ALL=en_US.UTF-8
 create_cra_project(){
   clear
   PROJECT_FOLDER=$1
@@ -24,15 +25,28 @@ create_cra_project(){
 # source ~/.zshrc &> ${log_path}
 
 title " SETTING UP REACT BLUEPRINT" $LOGO;
+nvm_installed=0
 
 # ============ NVM =============
 if command_exists nvm; then
   title "NVM already installed" $CHECK
 else
   installing "NVM"
+  nvm_installed=1
 
   bash <(wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh) >myscript.log 2>&1 </dev/null &
   show_spinner "$!"
+
+  local_nvm_setting="export NVM_DIR=\"$HOME/.nvm\"
+[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
+[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
+
+  if  (echo $0 | grep -Eq "bash\$"); then
+    test -f "~/.bash_profile" && echo "${local_nvm_setting}" > ~/.bash_profile
+    test -f "~/.bashrc" && echo "${local_nvm_setting}" >  ~/.bashrc
+  else
+    test -f "~/.zshrc" && echo "${local_nvm_setting}" >  ~/.zshrc
+  fi
 fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -93,7 +107,7 @@ show_spinner "$!"
 installed "eslint & prettier" $CONSTRUCTOR
 
 output "Include default example..."
-DEMO_FILES=(components.js globalStyles.js store.js redux/actions/index.js redux/actionTypes/index.js redux/reducers/index redux/reducers/color.js history.js pages/Home.js App.js index.js ../globalStyles.js)
+DEMO_FILES=(components.js globalStyles.js store.js redux/actions/index.js redux/actionTypes/index.js redux/reducers/index redux/reducers/color.js history.js pages/Home.js App.js index.js )
 mkdir -p src/redux/actions
 mkdir -p src/redux/actionTypes
 mkdir -p src/redux/reducers
@@ -104,6 +118,10 @@ do
   show_spinner "$!"
 done
 
+bash <(wget -qO "./jsconfig.js" "https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/templates/jsconfig.js") >myscript.log 2>&1 </dev/null &
+show_spinner "$!"
+
 output "React Blueprint completed!" "🍺🎉"
+[[ -z "$nvm_installed" ]] && echo "NVM was installed but required a refresh for your shell profile (e.g. source ~/.bashrc) or open a new tab"
 rm ./myscript.log
 }
