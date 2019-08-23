@@ -107,10 +107,10 @@ show_spinner "$!"
 installed "eslint & prettier" $CONSTRUCTOR
 
 output "Include default example..."
-DEMO_FILES=(components.js globalStyles.js store.js redux/actions/index.js redux/actionTypes/index.js redux/reducers/index redux/reducers/color.js history.js pages/Home.js App.js index.js )
-mkdir -p src/redux/actions
-mkdir -p src/redux/actionTypes
-mkdir -p src/redux/reducers
+DEMO_FILES=(components.js globalStyles.js store.js actions/index.js actionTypes/index.js reducers/index reducers/color.js history.js pages/Home.js App.js index.js )
+mkdir -p src/actions
+mkdir -p src/actionTypes
+mkdir -p src/reducers
 mkdir -p src/pages
 for i in "${DEMO_FILES[@]}"
 do
