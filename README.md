@@ -30,7 +30,7 @@ After that, close your current terminal and open a new terminal.
 crabp --help
 ```
 
-![](out.gif)
+![](bp2.gif)
 
 After installation, go into your app folder and run `npm run start`. That's all, your React + Redux project is ready to test :atom:.
 
