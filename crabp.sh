@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Implementation of crabpword script
-
+VERSION=0.0.1
 NONE='\033[00m'
 RED='\033[01;31m'
 GREEN='\033[01;32m'
@@ -14,19 +14,22 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 # Script name
-BASH_CLI_SCRIPT_NAME="${BLUE}⚛︎${NONE} ${GREEN}CRA BLUEPRINT${NONE}"
+BASH_CLI_SCRIPT_NAME="${BLUE}⚛︎${NONE} ${GREEN}CRA BLUEPRINT${NONE} Vr. ${VERSION}"
 
 # Option name
 BASH_CLI_OPT_NAME[0]="create"
+BASH_CLI_OPT_NAME[1]="upgrade"
 
 # Alternative option name
 BASH_CLI_OPT_ALT_NAME[0]="create"
+BASH_CLI_OPT_ALT_NAME[1]="upgrade"
 
 # Data type consists of string, boolean, and cmd.
 #   - string does not allow you set empty option value
 #   - object allows you flag the option without giving value
 #   - cmd is the command used in various situations in your script.
 BASH_CLI_OPT_DATA_TYPE[0]="cmd"
+BASH_CLI_OPT_DATA_TYPE[1]="cmd"
 
 # Setting mandatory and optional parameters for cmd "crabp"
 # A cmd data type may require one or more mandatory and optional parameters
@@ -55,7 +58,8 @@ BASH_CLI_OPT_DATA_TYPE[0]="cmd"
 # BASH_CLI_NON_MANDATORY_PARAM[3]="1,2"
 BASH_CLI_OPT_DESC[0]="Create React Project using CRA blueprint menu dependencies 👨‍🍳
 \t    For more information: https://github.com/charly-palencia/create-react-app-blueprint#what-does-this-setup-included\n
-\t    ${BOLD}Example:${NONE}  ${GREEN}crabp${NONE} create ${BOLD}testApp${NONE}"
+\t    ${BOLD}Example:${NONE}  ${GREEN}crabp${NONE} create ${BOLD}example${NONE}"
+BASH_CLI_OPT_DESC[1]="Upgrade crabp version"
 
 # Setting description of the option
 # BASH_CLI_OPT_DESC[0]="text"
@@ -74,6 +78,10 @@ create() {
   create_cra_project $1
 }
 
+upgrade() {
+ upgrade_crabp
+}
+
 # Base CLI commands
 
 BASH_CLI_ALL_ARGS=${@:2}
@@ -85,14 +93,14 @@ do
     echo "BASH_CLI_OPT_DATA_TYPE[$i]=\"\" empty string is not allowed."
     echo "The value must be one of these: \"string\", \"boolean\", or \"cmd\""
     exit
-  else 
+  else
     if [ "${BASH_CLI_OPT_DATA_TYPE[$i]}" == "string" ] ; then 
       BASH_CLI_OPT_VALUE[$i]="<undefined>"
     elif [ "${BASH_CLI_OPT_DATA_TYPE[$i]}" == "boolean" ] ; then 
       BASH_CLI_OPT_VALUE[$i]=false
     elif [ "${BASH_CLI_OPT_DATA_TYPE[$i]}" == "cmd" ] ; then 
       BASH_CLI_OPT_VALUE[$i]="wait"
-    else 
+    else
       echo "BASH_CLI_OPT_DATA_TYPE[$i]=${BASH_CLI_OPT_DATA_TYPE[$i]} is not allowed."
       echo "The value must be one of these: \"string\", \"boolean\", or \"cmd\""
       exit

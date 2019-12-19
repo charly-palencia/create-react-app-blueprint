@@ -28,32 +28,10 @@ title " SETTING UP REACT BLUEPRINT" $LOGO;
 
 # ============ NVM =============
 if [ -d "$HOME/.nvm" ]; then
-  title "NVM already installed" $CHECK
+  title "NVM installation validation" $CHECK
 else
-  echo "Some default source line will be add to your profile (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc). Please,  close your current terminal, open a new terminal, and try verifying again after process ended."
-  installing "NVM"
-  nvm_installed=1
-
-  bash <(wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh) >myscript.log 2>&1 </dev/null &
-  show_spinner "$!"
-
-  local_nvm_setting="export NVM_DIR=\"$HOME/.nvm\"
-[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm
-[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\""
-
-if [ $SHELL == "/bin/sh" ]; then
-    [ -f ~/.bash_profile ] && echo "${local_nvm_setting}" >> ~/.bash_profile
-    [ -f ~/.bashrc ] && echo "${local_nvm_setting}" >>  ~/.bashrc
-  else
-     [ -f ~/.zshrc ] && echo "${local_nvm_setting}" >>  ~/.zshrc
-  fi
+  title " NVM is required for installation" $ERROR;
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" >myscript.log 2>&1 </dev/null 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" >myscript.log 2>&1 </dev/null 
-
-installed "NVM"
 
 # ============ NODE VERSION =============
 LTS_NODE_VERSION=$(wget -qO- https://resolve-node.now.sh/lts)
@@ -125,4 +103,15 @@ show_spinner "$!"
 
 output "React Blueprint completed!" "🍺🎉"
 rm ./myscript.log
+}
+
+upgrade_crabp(){
+  installing "Upgrading React Blueprint"
+  rm $HOME/bin/crabp
+  (mkdir -p $HOME/bin && wget -O $HOME/bin/crabp https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/helper.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/main.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/crabp.sh ) &
+
+  # cat ./helper.sh ./main.sh ./crabp.sh > $HOME/bin/crabp &
+  show_spinner "$!"
+  chmod +x $HOME/bin/crabp
+  output "React Blueprint upgrade completed!" $VERSION
 }

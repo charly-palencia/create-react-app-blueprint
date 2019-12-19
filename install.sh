@@ -65,6 +65,23 @@ show_spinner()
   done
   printf "    \b\b\b\b"
 }
-(wget -O /usr/local/bin/crabp https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/helper.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/main.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/crabp.sh ) &
+(mkdir -p $HOME/bin && wget -O $HOME/bin/crabp https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/helper.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/main.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/crabp.sh ) &
+
+# cat ./helper.sh ./main.sh ./crabp.sh > $HOME/bin/crabp
 show_spinner "$!"
-chmod +x /usr/local/bin/crabp
+chmod +x $HOME/bin/crabp
+
+local_crabp_setting='
+# ------- crabp command settings ----
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+fi
+# ------- crabp command settings ----
+'
+
+if [ $SHELL == "/bin/sh" ]; then
+  [ -f ~/.bash_profile ] && echo "${local_nvm_setting}" >> ~/.bash_profile
+  [ -f ~/.bashrc ] && echo "${local_nvm_setting}" >>  ~/.bashrc
+else
+  [ -f ~/.zshrc ] && echo "${local_nvm_setting}" >>  ~/.zshrc
+fi

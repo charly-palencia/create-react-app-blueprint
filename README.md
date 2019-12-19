@@ -15,6 +15,7 @@ If you want to see all the step by step for this project please [go to this arti
 
 - [WGET](https://www.gnu.org/software/wget/) 
 - [GIT](https://git-scm.com/)
+- [NVM](https://github.com/nvm-sh/nvm)
 
 ## Quickstart
 Run this command in your terminal to create a new project.
@@ -37,13 +38,14 @@ After installation, go into your app folder and run `npm run start`. That's all,
 
 ## What does this setup included?
 
-- NVM
+- Include .nvm with latest version
 - Create React App
 - Redux
 - Styled-Component
 - Prettier
 - React-router
 - jsConfig.js
+- Include node version validator with node-check-engine
 
 
 ## Why should I use CRA-blueprint?
@@ -57,11 +59,8 @@ After installation, go into your app folder and run `npm run start`. That's all,
 ## OS verification
 - [x] Mac O SMojave
 - [x] Ubuntu
-- [ ] Window 
+- [ ] Window
 
 
 ## TODO list
-- [ ] Include cramp cli
-- [ ] Include example from github service from latest version
-- [ ] Include automatic update for cramp cli command
-- [ ] Rename helper methods to avoid conflicts 
+- [ ] Change template using new react hooks 
