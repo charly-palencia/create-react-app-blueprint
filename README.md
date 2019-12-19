@@ -84,3 +84,4 @@ Please run the next command, see ya later :(
 ## TODO list
 - [ ] Include test suite 
 - [ ] Include curl as alternative
+- [ ] It's not working for current folder (`crabp create .`)
