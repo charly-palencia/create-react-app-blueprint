@@ -36,17 +36,33 @@ After installation, go into your app folder and run `npm run start`. That's all,
 
 **Note**: Installing *CRA* app takes a while, so be patient :smile:.
 
-## What does this setup included?
+## What extra libraries does it included?
 
-- Include .nvm with latest version
-- Create React App
-- Redux
-- Styled-Component
-- Prettier
-- React-router
-- jsConfig.js
-- Include node version validator with node-check-engine
+| Library name  | Description  |   |
+| ------------ | ------------ | ------------ |
+| Create React App | Set up a modern web app by running one command.  | [Home Page](https://github.com/facebook/create-react-app)  |
+| Redux  | Predictable state container for JavaScript apps  | [Home Page](https://github.com/reduxjs/redux)  |
+| Styled-Component  | Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.   |  [Home Page](https://github.com/styled-components/styled-components)  |
+| Prettier  | Prettier is an opinionated code formatter.  | https://github.com/prettier/prettier  |
+| Eslint  | A fully pluggable tool for identifying and reporting on patterns in JavaScript   | [Eslint](https://github.com/eslint/eslint)  |
+| React Router  | Declarative routing for React   | [Home Page](https://github.com/ReactTraining/react-router)  |
 
+
+## What about the built-in setup?
+
+| Setting  | Description  |   |
+| ------------ | ------------ | ------------ |
+| **.nvm** with node LTS version  | version will be fetch from a third party service in order to get always the last node version  | [More Info](https://github.com/nvm-sh/nvm)  |
+|** jsconfig.json** configuration with CRA  |The presence of jsconfig.json file in a directory indicates that the directory is the root of a JavaScript Project.   | [More Info](https://github.com/microsoft/vscode-docs/blob/master/docs/languages/jsconfig.md)  |
+| **check-engine **validation before npm i  | A utility to check your engines for Node.js  | [More Info](https://github.com/mohlsen/check-engine)  |
+
+## I don't want this, how can I uninstall it?
+
+Please run the next command, see ya later :(
+
+```
+  rm ~/bin/crabp/sh
+```
 
 ## Why should I use CRA-blueprint?
 
@@ -63,4 +79,4 @@ After installation, go into your app folder and run `npm run start`. That's all,
 
 
 ## TODO list
-- [ ] Change template using new react hooks 
+- [ ] Include test suite 
