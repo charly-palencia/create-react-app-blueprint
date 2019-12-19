@@ -9,7 +9,7 @@
 
 ## Summary 
 
-If you want to see all the step by step for this project please [go to this article](). Please enjoy it :book:.
+If you want to see all the step by step for this project please [go to this article](https://medium.com/@charlypalencia/no-more-react-boilerplates-long-live-to-react-app-blueprint-5141a92c531f). Please enjoy it :book:.
 
 ## Prerequisites
 
