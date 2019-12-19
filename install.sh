@@ -67,7 +67,7 @@ show_spinner()
 }
 (mkdir -p $HOME/bin && wget -O $HOME/bin/crabp https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/helper.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/main.sh https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/crabp.sh ) &
 
-# cat ./helper.sh ./main.sh ./crabp.sh > $HOME/bin/crabp
+# cat ./helper.sh ./main.sh ./crabp.sh > $HOME/bin/crabp &
 show_spinner "$!"
 chmod +x $HOME/bin/crabp
 

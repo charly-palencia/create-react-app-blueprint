@@ -26,6 +26,9 @@ create_cra_project(){
 
 title " SETTING UP REACT BLUEPRINT" $LOGO;
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 # ============ NVM =============
 if [ -d "$HOME/.nvm" ]; then
   title "NVM installation validation" $CHECK

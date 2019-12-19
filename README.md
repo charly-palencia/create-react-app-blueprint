@@ -21,7 +21,7 @@ If you want to see all the step by step for this project please [go to this arti
 Run this command in your terminal to create a new project.
 
 ```
-wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | sudo bash
+wget -qO- https://raw.githubusercontent.com/charly-palencia/create-react-app-blueprint/master/install.sh | bash
 ```
 
 After that, close your current terminal and open a new terminal.
