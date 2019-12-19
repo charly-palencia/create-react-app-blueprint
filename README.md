@@ -13,9 +13,9 @@ If you want to see all the step by step for this project please [go to this arti
 
 ## Prerequisites
 
-- [WGET](https://www.gnu.org/software/wget/) 
-- [GIT](https://git-scm.com/)
-- [NVM](https://github.com/nvm-sh/nvm)
+- [wget](https://www.gnu.org/software/wget/) 
+- [git](https://git-scm.com/)
+- [nvm](https://github.com/nvm-sh/nvm)
 
 ## Quickstart
 Run this command in your terminal to create a new project.
@@ -80,3 +80,5 @@ Please run the next command, see ya later :(
 
 ## TODO list
 - [ ] Include test suite 
+- [ ] Include curl as alternative
+- [ ] Include 
