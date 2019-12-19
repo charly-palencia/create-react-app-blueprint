@@ -43,7 +43,7 @@ After installation, go into your app folder and run `npm run start`. That's all,
 | Create React App | Set up a modern web app by running one command.  | [Home Page](https://github.com/facebook/create-react-app)  |
 | Redux  | Predictable state container for JavaScript apps  | [Home Page](https://github.com/reduxjs/redux)  |
 | Styled-Component  | Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.   |  [Home Page](https://github.com/styled-components/styled-components)  |
-| Prettier  | Prettier is an opinionated code formatter.  | https://github.com/prettier/prettier  |
+| Prettier  | Prettier is an opinionated code formatter.  | [Home Page](https://github.com/prettier/prettier)  |
 | Eslint  | A fully pluggable tool for identifying and reporting on patterns in JavaScript   | [Eslint](https://github.com/eslint/eslint)  |
 | React Router  | Declarative routing for React   | [Home Page](https://github.com/ReactTraining/react-router)  |
 
