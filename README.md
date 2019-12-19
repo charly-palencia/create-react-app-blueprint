@@ -81,4 +81,3 @@ Please run the next command, see ya later :(
 ## TODO list
 - [ ] Include test suite 
 - [ ] Include curl as alternative
-- [ ] Include 
